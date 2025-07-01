@@ -1,39 +1,74 @@
-# assistant
+# Study Buddy
 
-This template should help get you started developing with Vue 3 in Vite.
+## Overview
 
-## Recommended IDE Setup
+A personalised study assistant, designed to help learners get the most out of their studies.
+Target audience is K-12 students.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
 
-## Type Support for `.vue` Imports in TS
+- LLM tutor that helps the student and keeps them engaged
+- Study cards
+- Timed Testing with score tracking
+- Pomodoro Timer
+- Parental report that summarises what was studied
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## To Do
 
-## Customize configuration
+### App
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+[ ] - Setup App hosting
+[ ] - Setup Database
+[ ] - Setup Auth
+[ ] - UI Library
+[ ] - Light and Dark themes
 
-## Project Setup
+### LLM Tutor
 
-```sh
-pnpm install
-```
+[x] - Send input to LLM
+[x] - Show output via interface
+[ ] - Improve UI
+[ ] - Authentication
+[ ] - Message history for authenticated user
+[ ] - Personalisation
 
-### Compile and Hot-Reload for Development
+### Study Cards
 
-```sh
-pnpm dev
-```
+[ ] - Data schema (Topics and Cards)
+[ ] - Card UI
+[ ] - Local Topic and Card Flow (UI and local data)
+[ ] - Connect frontend with data layer
+[ ] - Auto-create cards based on topic
+[ ] - Upload class notes - LLM generates study cards
 
-### Type-Check, Compile and Minify for Production
+### Testing
 
-```sh
-pnpm build
-```
+[ ] - Testing UI
+[ ] - Testing Data Schema
+[ ] - Track Testing in Database
+[ ] - UI animations
+[ ] - LLM reads the cards to test
+[ ] - Post-test reflections (could this lead to LLM discussion or creating/refining study cards?)
 
-### Lint with [ESLint](https://eslint.org/)
+### Pomodoro Timer
 
-```sh
-pnpm lint
-```
+[ ] - Add Timer to Topics
+[ ] - ALlow scheduling study sessions
+
+### Parental Report
+
+[ ] - Breakdown of Topics and Time Spent
+[ ] - Strengths and Areas for Improvement
+[ ] - Trends per Topic
+
+### Gamification
+
+[ ] - Set Goals
+[ ] - Track Progress (visual)
+[ ] - Badges system (achievements and streaks)
+
+### User Dashboard
+
+[ ] - Design UI to summarize progress
+[ ] - Integrate suggestions from LLM
+[ ] - Display scheduled sessions
