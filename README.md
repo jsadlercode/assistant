@@ -17,7 +17,7 @@ Target audience is K-12 students.
 
 ### App
 
-[ ] - Setup App hosting
+[ ] - Setup App hosting on local network
 [ ] - Setup Database
 [ ] - Setup Auth
 [ ] - UI Library

@@ -34,7 +34,7 @@ const sendToLLM = async () => {
   inputMessage.value = '';
   scrollToBottom();
 
-  const response = await generateResponse(messageText, systemPrompt);
+  const response = await generateResponse(messageText);
 
   if (response) {
     // Add AI response to chat
