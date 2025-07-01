@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, nextTick } from 'vue';
 import { useLLM } from './composables/useLLM';
+import { marked } from 'marked';
 
 interface Message {
   id: number;
@@ -8,7 +9,8 @@ interface Message {
   sender: 'user' | 'ai';
 }
 
-const systemPrompt = "You are a sarcastic cat";
+// const funSystemPrompt = "You are a sarcastic cat"; // Example of a fun system prompt when testing
+const systemPrompt = "You are a helpful tutor who helps students with their studies. You encourage them to think, learn and grow. You help them to understand concepts, and avoid giving them the answers directly. You like to keep your responses concise and use examples to help the student better understand the topic."
 
 const { generateResponse, isLoading, error } = useLLM(systemPrompt);
 const inputMessage = ref('');
@@ -53,8 +55,9 @@ const sendToLLM = async () => {
     </header>
     <main ref="chatContainer" class="flex-grow overflow-y-auto p-4 border-base-200 border-2">
       <div v-for="message in messages" :key="message.id" class="chat" :class="message.sender === 'user' ? 'chat-end' : 'chat-start'">
-        <div class="chat-bubble" :class="message.sender === 'user' ? 'chat-bubble-primary' : ''">
-          {{ message.text }}
+        <div class="chat-bubble prose" :class="message.sender === 'user' ? 'chat-bubble-primary' : ''">
+          <span v-if="message.sender === 'user'">{{ message.text }}</span>
+          <div v-else v-html="marked(message.text)"></div>
         </div>
       </div>
     </main>
@@ -75,4 +78,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.prose {
+  max-width: none;
+}
 </style>
