@@ -1,7 +1,9 @@
 # Step 1 - Build
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 RUN corepack enable
 WORKDIR /app
+ARG VITE_GEMINI_API_KEY
+ENV VITE_GEMINI_API_KEY=${VITE_GEMINI_API_KEY}
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
